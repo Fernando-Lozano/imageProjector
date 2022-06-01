@@ -18,6 +18,7 @@ const controls = document.querySelector("#controls");
 const imgContainer = document.querySelector("#imgContainer");
 let init = true;
 let initImg = true;
+let initDisplay = true;
 
 function addImages(imageSets) {
   for (set in imageSets) {
@@ -85,8 +86,16 @@ function addImages(imageSets) {
       input.addEventListener("change", function() {
         this.imagePartner.style.opacity = this.value/100;
       });
-    }
 
+      if (!initDisplay) {
+        label.classList.add("d-none");
+        input.classList.add("d-none");
+        image.classList.add("d-none");
+      }
+    }
+    if (initDisplay) {
+      initDisplay = !initDisplay;
+    }
   }
 }
 function wrapper(imageSets) {

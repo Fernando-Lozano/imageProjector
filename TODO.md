@@ -1,1 +1,0 @@
-plan how I want this to work before actually programming
