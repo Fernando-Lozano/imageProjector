@@ -1,5 +1,5 @@
 // gets json data for image urls
-fetch("./data.docx")
+fetch("./data.txt")
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not OK');
