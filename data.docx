@@ -1,0 +1,24 @@
+* Add a title for your image sets and provide links.
+* Leave a space between image sets.
+*
+* Example:
+*   main floor
+*   ./images/electricalMain.png
+*   ./images/hvacMain.png
+*
+*   second floor
+*   ./images/electricalSecond.png
+*   ./images/hvacSecond.png
+*
+* Leave a space after this line.
+
+main floor
+./images/electricalMain.png
+./images/hvacMain.png
+./images/plumbingMain.png
+./images/joistsMain.png
+./images/electricalSecond.png
+./images/hvacSecond.png
+./images/plumbingSecond.png
+./images/joistsSecond.png
+./images/RTUs.png

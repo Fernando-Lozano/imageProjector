@@ -1,21 +1,35 @@
 // gets json data for image urls
-fetch("./data.json") // change this url when posting to github
+fetch("./data.docx")
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not OK');
     }
-    return response.json();
+    return response.text();
   })
   .then(data => {
-    addImages(data.imageSets);
+    addImages(parse(data));
   })
   .catch(error => {
     console.error('There has been a problem with your fetch operation:', error);
   });
 
+// makes a javascript object from a text file
+function parse(data) {
+  const jsData = {};
+  const sections = data.split("\n\n");
+  let imageSets;
+  for (let i = 1; i < sections.length; i++) {
+    imageSets = sections[i].split("\n");
+    jsData[imageSets[0]] = {};
+    jsData[imageSets[0]].urls = imageSets.slice(1);  
+  }
+  return jsData;
+}
+
 const navTabes = document.querySelector(".nav-tabs");
 const controls = document.querySelector("#controls");
 const imgContainer = document.querySelector("#imgContainer");
+const initOpacity = 0; // change depending on the desired initialization
 let init = true;
 let initImg = true;
 let initDisplay = true;
@@ -47,7 +61,8 @@ function addImages(imageSets) {
     imageSets[set].elements = [];
 
     for (img of imageSets[set].urls) {
-      let anchor = img.slice(img.lastIndexOf("/")+1);
+      // gets the name of the image minus file extension
+      let anchor = img.slice(img.lastIndexOf("/")+1, img.lastIndexOf("."));
 
       const label = document.createElement("label");
       label.classList.add("form-label");
@@ -59,6 +74,7 @@ function addImages(imageSets) {
       input.classList.add("form-range");
       input.setAttribute("type", "range");
       input.setAttribute("id", anchor);
+      input.value = initOpacity*100;
       imageSets[set].elements.push(input);
 
       controls.appendChild(label);
@@ -69,6 +85,8 @@ function addImages(imageSets) {
       image.classList.add("img-fluid");
       image.setAttribute("alt", anchor);
       image.src = img;
+      image.style.opacity = initOpacity;
+
       imageSets[set].elements.push(image);
 
       if (initImg) {

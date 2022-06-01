@@ -1,2 +1,2 @@
 Used to superimpose blueprints.
-images must be the same size.
+Images must be the same size.
