@@ -43,6 +43,8 @@ function addImages(imageSets) {
     a.addEventListener("click", wrapper(imageSets));
     
     // add controls
+    imageSets[set].elements = [];
+
     for (img of imageSets[set].urls) {
       let anchor = img.slice(img.lastIndexOf("/")+1);
 
@@ -50,11 +52,13 @@ function addImages(imageSets) {
       label.classList.add("form-label");
       label.setAttribute("for", anchor);
       label.textContent = anchor;
+      imageSets[set].elements.push(label);
 
       const input = document.createElement("input");
       input.classList.add("form-range");
       input.setAttribute("type", "range");
       input.setAttribute("id", anchor);
+      imageSets[set].elements.push(input);
 
       controls.appendChild(label);
       controls.appendChild(input);
@@ -64,6 +68,7 @@ function addImages(imageSets) {
       image.classList.add("img-fluid");
       image.setAttribute("alt", anchor);
       image.src = img;
+      imageSets[set].elements.push(image);
 
       if (initImg) {
         image.classList.add("position-relative");
@@ -87,12 +92,23 @@ function addImages(imageSets) {
 function wrapper(imageSets) {
   return function makeActive() {
     this.classList.add("active");
+
+    for (element of imageSets[this.textContent].elements) {
+      element.classList.remove("d-none");
+    }
+
+    // show controls and images
     
     for (set in imageSets) {
       if (set !== this.textContent) {
+        // do stuff to all other sets
+        // hide controls and images
         imageSets[set].tab.classList.remove("active");
+
+        for (element of imageSets[set].elements) {
+          element.classList.add("d-none");
+        }
       }
     }
-    
   }
 }
