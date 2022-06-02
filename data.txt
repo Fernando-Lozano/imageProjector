@@ -12,7 +12,7 @@
 *
 * Leave a space after this line.
 
-main floor
+main
 ./images/RTUs.png
 ./images/joistsSecond.png
 ./images/plumbingSecond.png
