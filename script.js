@@ -90,12 +90,12 @@ function addImages(imageSets) {
       imageSets[set].elements.push(image);
 
       if (initImg) {
-        image.classList.add("position-relative");
+        image.classList.add("position-relative", "top-0", "start-0");
         initImg = !initImg;
       } else {
         image.classList.add("position-absolute", "top-0", "start-0");
       }
-
+      
       imgContainer.appendChild(image);
 
       // to know which image to control
