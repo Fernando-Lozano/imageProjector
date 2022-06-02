@@ -13,12 +13,12 @@
 * Leave a space after this line.
 
 main floor
-./images/electricalMain.png
-./images/hvacMain.png
-./images/plumbingMain.png
-./images/joistsMain.png
-./images/electricalSecond.png
-./images/hvacSecond.png
-./images/plumbingSecond.png
-./images/joistsSecond.png
 ./images/RTUs.png
+./images/joistsSecond.png
+./images/plumbingSecond.png
+./images/hvacSecond.png
+./images/electricalSecond.png
+./images/joistsMain.png
+./images/plumbingMain.png
+./images/hvacMain.png
+./images/electricalMain.png
