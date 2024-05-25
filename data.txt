@@ -13,12 +13,12 @@
 * Leave a space after this line.
 
 main
-./images/RTUs.png
-./images/joistsSecond.png
-./images/plumbingSecond.png
-./images/hvacSecond.png
-./images/electricalSecond.png
-./images/joistsMain.png
-./images/plumbingMain.png
-./images/hvacMain.png
-./images/electricalMain.png
+./images/1stFlrCeil.png
+./images/1stFlrHVAC.png
+./images/1stFlrLites.png
+./images/1stFlrPower.png
+./images/1stFlrSprinkler.png
+./images/2ndFlrCeil.png
+./images/2ndFlrHVAC.png
+./images/2ndFlrLites.png
+./images/2ndFlrPower.png
